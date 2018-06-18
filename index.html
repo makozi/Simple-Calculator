@@ -1,0 +1,115 @@
+ <!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Calculator Built By Makozi</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="css/bulma.min.css" />
+
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <link href="images/logo.jpg" rel="shortcut icon" type="image/png">
+   
+</head>
+<body style="background-image: url(images/bg.jpg)">
+
+    <br>
+    <div class="container"  >
+        <h1 class="title has-text-info has-text-centered">Simple Calculator</h1>
+
+
+        <br> <br>
+        <form class="form-inline">
+         
+           <div class="field is-right  column is-one-fifth">
+                <div class="control">
+           <input v-model.number="a" class="form-control has-text-right is-info input" placeholder="info-input"
+          >
+           </div>
+           </div>
+
+
+
+
+
+           <br>
+           
+           <div class="field is-right column is-one-fifth">
+                <div class="control">
+           <select v-model="operator" class="form-control select"> 
+               <option>+</option>
+               <option>-</option>
+               <option>*</option>
+               <option>/</option>
+           </select> 
+           </div>
+           </div>
+
+
+           <div class="field is-right column is-one-fifth">
+                <div class="control">
+           <input v-model.number="b" class="form-control has-text-right is-info input   " placeholder="info-input">
+           </div>
+           </div>
+
+           <button type="submit" @click="calculate" class="button is-info is-focused ">Calculate</button>
+        </form>
+        <br>
+        <h2 class="has-text-white">Result: {{a}} {{operator}} {{b}}= {{c}}</h2>
+
+
+        <br>
+        <pre>
+            {{$data}}
+        </pre>
+    </div>
+</body>
+
+<script src="js/vue.min.js"></script>
+<script type="text/JavaScript">
+new Vue({
+    el: '.container',
+    data: {
+        a: 1,
+        b: 2,
+        c: null,
+        operator: "+",
+    },
+    methods:{
+        calculate: function(event){
+            event.preventDefault();
+            
+            switch(this.operator){
+                case "+":
+                this.c= this.a + this.b
+                break;
+                case "-":
+                this.c= this.a - this.b
+                break;
+
+                case "*":
+                this.c= this.a * this.b
+
+                break;
+
+
+                case  "/":
+                this.c = this.a / this.b
+
+                break;
+
+            }
+        }
+    },
+});
+</script>
+
+
+<div class="" style="color: black; text-align: center;">
+    © <script>document.write(new Date().getFullYear())</script>, Made with <i class="fa fa-heart" style="color: red;"></i> <a href="http://twitter.com/marizu_makozi" style="color: black">Makozi</a>
+  </div>
+
+  
+
+
+</html>
